@@ -1,7 +1,7 @@
 enZombie Traders v1.0
 https://community.7daystodie.com/topic/24594-enzombies-more-zombie-variations/
 
-This is an add-on mod that provides wandering traders using the UMA archetypes. These traders only provide ability to buy and sell goods, and do not give out quests. The main enZombies mod is required to be installed for these wandering traders to function.
+This is an add-on mod that provides wandering traders using the UMA archetypes. These traders only provide ability to buy and sell goods, and do not give out quests. The main enZombies mod is required to be installed for these wandering traders to function. This traders mod is completely server-side, so only needed on the server.
 
 
 Version 1.0:
