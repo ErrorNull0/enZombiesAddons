@@ -1,0 +1,197 @@
+<ErrorNull>
+
+<!-- test code for alpha 21
+<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group/triggered_effect[@trigger='onSelfEnteredGame']/@buff">,enDeadTraderCleanup</append>
+-->
+
+<append xpath="/entity_classes/entity_class[@name='playerMale']/effect_group">
+
+	<!-- (test code for alpha 21) despawns a dead trader when player punches them -->
+	<!--
+	<triggered_effect trigger="onSelfAttackedOther" action="CallGameEvent" event="enAction_removeTrader">
+		<requirement name="HasBuff" target="other" buff="enBuffTraderIsDead"/>
+	</triggered_effect>
+	-->
+</append>
+
+<append xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/effect_group">
+
+	<!-- ragdoll zombie when the zombie attacks trader -->
+	<triggered_effect trigger="onSelfAttackedOther" action="Ragdoll" target="self" force="999" duration="5">
+		<requirement name="EntityTagCompare" target="other" tags="tradernomad"/>
+	</triggered_effect>
+	
+</append>
+
+
+
+<append xpath="/entity_classes">
+
+
+	<entity_class name="EN_Trader_Template" extends="zombieTemplateMale">
+		<property name="Tags" value="entity"/>
+		<property name="HideInSpawnMenu" value="true"/>
+		<property name="Class" value="EntityTrader"/>
+		<property name="Parent" value="Players"/>
+		<property name="Faction" value="whiteriver"/>
+		<property name="Prefab" value="NPC"/>
+		<property name="ModelType" value="ZombieUMA"/> <!-- Use "NpcUMA" for stationary traders -->
+		<property name="PhysicsBody" value="zombieUMA"/>
+		<property name="HasDeathAnim" value="false"/>
+		<property name="HandItem" value="enHand_trader"/>		
+		<property name="SightRange" value="4"/>
+		<property name="MaxViewAngle" value="270"/>
+		<property name="AIFeralSense" value="0.5"/>
+		<property name="AINoiseSeekDist" value="2"/>
+		<property name="MoveSpeed" value="0.5"/>
+		<property name="MoveSpeedAggro" value="0.5,0.5"/>
+		<property name="MoveSpeedRand" value="0,0"/>
+		<property name="MoveSpeedPanic" value="0.5"/>
+		<property name="AIPathCostScale" value=".15, .4"/>
+		<property name="AITask-1" value="BreakBlock"/>
+		<property name="AITask-2" value="DestroyArea"/>
+		<property name="AITask-3" value="ApproachDistraction"/>
+		<property name="AITask-4" value="ApproachAndAttackTarget" data="class=EntityZombie,5"/>
+		<property name="AITask-5" value="ApproachSpot"/>
+		<property name="AITask-6" value="Look"/>
+		<property name="AITask-7" value="Wander"/>
+		<property name="AITask-8" value=""/>
+		<property name="AITarget-1" value="SetAsTargetIfHurt" data="class=EntityZombie"/>
+		<property name="AITarget-2" value="BlockingTargetTask"/>
+		<property name="AITarget-3" value="SetNearestEntityAsTarget" data="class=EntityZombie,0,0"/> 
+		<property name="AITarget-4" value=""/>
+		<property name="SoundRandom" value=""/>
+		<property name="SoundSense" value=""/>
+		<property name="SoundAlert" value=""/>
+		<property name="SoundHurt" value=""/>
+		<property name="SoundAttack" value=""/>
+		<property name="SoundDeath" value=""/>
+		<property name="ExperienceGain" value="0"/>
+		<effect_group name="Base Effects">
+			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="enDeco_dualBags"/>
+			<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="enBuffJumpBugFix"/>
+		</effect_group>
+	</entity_class>
+
+
+	<!-- wandering trader Jen (forest) -->
+	<entity_class name="enTraderJen1" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,traderfemale" />
+		<property name="NPCID" value="enNPC_TraderJen_1"/>
+		<property name="Archetype" value="en_traderJen1"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="2" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="160"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Jen (desert) -->
+	<entity_class name="enTraderJen2" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,traderfemale" />
+		<property name="NPCID" value="enNPC_TraderJen_1"/>
+		<property name="Archetype" value="en_traderJen2"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="2" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="160"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Jen (snow) -->
+	<entity_class name="enTraderJen3" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,traderfemale" />
+		<property name="NPCID" value="enNPC_TraderJen_1"/>
+		<property name="Archetype" value="en_traderJen3"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="2" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="160"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Jen (burnt) -->
+	<entity_class name="enTraderJen4" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,traderfemale" />
+		<property name="NPCID" value="enNPC_TraderJen_1"/>
+		<property name="Archetype" value="en_traderJen4"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="2" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="160"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Jen (wasteland) -->
+	<entity_class name="enTraderJen5" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,traderfemale" />
+		<property name="NPCID" value="enNPC_TraderJen_1"/>
+		<property name="Archetype" value="en_traderJen5"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="2" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="160"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Joel -->
+	<entity_class name="enTraderJoel1" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,tradermale" />
+		<property name="NPCID" value="enNPC_TraderJoel_1"/>
+		<property name="Archetype" value="en_traderJoel1"/>
+		<property name="SizeScale" value="0.98"/>
+		<property name="DanceType" value="1" />
+		<property name="WalkType" value="2"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="200"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Rekt -->
+	<entity_class name="enTraderRekt1" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,tradermale" />
+		<property name="NPCID" value="enNPC_TraderRekt_1"/>
+		<property name="Archetype" value="en_traderRekt1"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="1" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="200"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Hugh -->
+	<entity_class name="enTraderHugh" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,tradermale" />
+		<property name="NPCID" value="enNPC_TraderHugh_1"/>
+		<property name="Archetype" value="en_traderHugh1"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="1" />
+		<property name="WalkType" value="7"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="200"/>
+		</effect_group>
+	</entity_class>
+	
+	<!-- wandering trader Bob -->
+	<entity_class name="enTraderBob" extends="EN_Trader_Template">
+		<property name="Tags" value="entity,tradernomad,tradermale" />
+		<property name="NPCID" value="enNPC_TraderBob_1"/>
+		<property name="Archetype" value="en_traderBob1"/>
+		<property name="SizeScale" value="0.99"/>
+		<property name="DanceType" value="1" />
+		<property name="WalkType" value="2"/>
+		<effect_group name="Base Effects">
+			<passive_effect name="HealthMax" operation="base_set" value="200"/>
+		</effect_group>
+	</entity_class>
+	
+	
+</append>
+
+</ErrorNull>
