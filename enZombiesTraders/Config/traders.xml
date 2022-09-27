@@ -1,0 +1,63 @@
+<ErrorNull>
+
+<!-- Each wandering trader has items to sell based on their theme. They purposefully do not carry a warehouse full of products but only a few items.
+Jen		= medicine
+Rekt	= food, seeds
+Joel 	= armor
+Hugh	= weapons
+Bob		= vehicle parts
+-->
+
+<append xpath="/traders">
+
+	<!-- wandering trader Jen -->
+	<trader_info id="101" reset_interval="30" override_buy_markup="2.0" override_sell_markup="0.5" allow_sell="true" min_inventory="5" max_inventory="15">
+		<trader_items count="10">
+			<item group="generalResources"/>
+			<item group="medicine"/>
+			<item name="enStemCells" prob="0.2"/>
+		</trader_items>
+	</trader_info>
+	
+	<!-- wandering trader Rekt -->
+	<trader_info id="102" reset_interval="30" override_buy_markup="2.0" override_sell_markup="0.5" allow_sell="true" min_inventory="5" max_inventory="15">
+		<trader_items count="10">
+			<item group="generalResources"/>
+			<item group="cannedfood"/>
+			<item group="foodCandy"/>
+			<item group="preparedDrink"/>
+			<item group="seeds"/>
+		</trader_items>
+	</trader_info>
+	
+	<!-- wandering trader Joel -->
+	<trader_info id="103" reset_interval="30" override_buy_markup="2.0" override_sell_markup="0.5" allow_sell="true" min_inventory="5" max_inventory="15">
+		<trader_items count="10">
+			<item group="generalResources"/>
+			<item group="groupArmorLightMixed"/>
+			<item group="groupArmorHeavyMixed"/>
+		</trader_items>
+	</trader_info>
+	
+	<!-- wandering trader Hugh -->
+	<trader_info id="104" reset_interval="30" override_buy_markup="2.0" override_sell_markup="0.5" allow_sell="true" min_inventory="5" max_inventory="15">
+		<trader_items count="10">
+			<item group="generalResources"/>
+			<item group="weaponsMeleeMixed"/>
+			<item group="weaponsGunsMixed"/>
+			<item group="thrownAmmo"/>
+		</trader_items>
+	</trader_info>
+	
+	<!-- wandering trader Bob -->
+	<trader_info id="105" reset_interval="30" override_buy_markup="2.0" override_sell_markup="0.5" allow_sell="true" min_inventory="5" max_inventory="15">
+		<trader_items count="10">
+			<item group="generalResources"/>
+			<item group="tools"/>
+			<item group="vehiclePartsMixed"/>
+		</trader_items>
+	</trader_info>
+	
+</append>
+
+</ErrorNull>

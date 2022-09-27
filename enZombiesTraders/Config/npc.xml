@@ -1,0 +1,79 @@
+<ErrorNull>
+
+<append xpath="/npc">
+
+<!-- wandering trader -->
+<npc_info
+	id="enNPC_TraderJen_1"
+	name="Wandering Trader"
+	name_key="Wandering Jen"
+	faction="whiteriver"
+	portrait="npc_jen"
+	greeting_type="nearby"
+	stance="Like" 
+	voice_set="trader_jen"
+	trader_id="101" 
+	dialog_id="en_trader" 
+	quest_faction="1" 
+/>
+
+<npc_info
+	id="enNPC_TraderRekt_1"
+	name="Wandering Trader"
+	name_key="Wandering Rekt"
+	faction="whiteriver"
+	portrait="npc_rekt"
+	greeting_type="nearby"
+	stance="Dislike" 
+	voice_set="trader"
+	trader_id="102" 
+	dialog_id="en_trader" 
+	quest_faction="1" 
+/>
+
+<npc_info
+	id="enNPC_TraderJoel_1"
+	name="Wandering Trader"
+	name_key="Wandering Joel"
+	faction="whiteriver"
+	portrait="npc_joel"
+	greeting_type="nearby"
+	stance="Like" 
+	voice_set="trader"
+	trader_id="103" 
+	dialog_id="en_trader" 
+	quest_faction="1" 
+/>
+
+<npc_info
+	id="enNPC_TraderHugh_1"
+	name="Wandering Trader"
+	name_key="Wandering Hugh"
+	faction="whiteriver"
+	portrait="npc_hugh"
+	greeting_type="nearby"
+	stance="Neutral" 
+	voice_set="trader"
+	trader_id="104" 
+	dialog_id="en_trader" 
+	quest_faction="1" 
+/>
+
+<npc_info
+	id="enNPC_TraderBob_1"
+	name="Wandering Trader"
+	name_key="Wandering Bob"
+	faction="whiteriver"
+	portrait="npc_bob"
+	greeting_type="nearby"
+	stance="Like" 
+	voice_set="trader"
+	trader_id="105" 
+	dialog_id="en_trader" 
+	quest_faction="1" 
+/>
+	
+	
+</append>
+
+</ErrorNull>

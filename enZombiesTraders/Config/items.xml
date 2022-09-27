@@ -1,0 +1,97 @@
+<ErrorNull>
+
+
+<append xpath="/items/item[@name='meleeHandZombie01']/effect_group">
+	<!-- test code for alpha 21
+	<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" buff="enBuffReduceTraderHP">
+		<requirement name="EntityTagCompare" target="other" tags="tradernomad"/>
+		<requirement name="StatCompareCurrent" stat="Health" target="other" operation="GT" value="0"/>
+	</triggered_effect>
+	-->
+	
+	<!--
+	<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="self" buff="enBuffRagdollZombie">
+		<requirement name="EntityTagCompare" target="other" tags="tradernomad"/>
+	</triggered_effect>
+	-->
+	
+</append>
+
+
+<append xpath="/items">
+
+	<!-- default handitem for all wandering tranders -->
+	<item name="enHand_trader">
+		<property name="Extends" value="meleeHandZombie01"/>
+		<property name="CreativeMode" value="None"/>
+		<property class="Action0">
+			<property name="DamageEntity" value="0"/>
+			<property name="DamageBlock" value="0"/>
+			<property name="Range" value="2.5"/>
+			<property name="Sphere" value="0.15"/>
+		</property>
+		<effect_group name="enHand_trader">
+			<!-- ragdoll zombies when trader hits them -->
+			<triggered_effect trigger="onSelfAttackedOther" action="Ragdoll" target="other" force="999" duration="1">
+				<requirement name="EntityTagCompare" target="other" tags="zombie,animal"/>
+			</triggered_effect>
+			<!-- trader causes 1 HP when hitting target. Cancel out this effect by giving back 1 HP to the target -->
+			<triggered_effect trigger="onSelfAttackedOther" action="ModifyStats" target="other" stat="Health" operation="add" value="1">
+			</triggered_effect>
+		</effect_group>
+	</item>
+	
+	<!-- for testing purposes -->
+	<item name="enBluePill">
+		<property name="Tags" value="enRedPill"/>
+		<property name="HoldType" value="16"/>
+		<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
+		<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+		<property name="CustomIcon" value="drugAntibiotics"/>
+		<property name="CustomIconTint" value="0000FF"/>
+		<property name="TintColor" value="0,0,255"/>
+		<property name="Material" value="Morganic"/>
+		<property name="EconomicValue" value="1"/>
+		<property name="SellableToTrader" value="false"/>
+		<property name="Stacknumber" value="100"/>
+		<property class="Action0">			
+			<property name="Class" value="Eat"/>
+			<property name="Delay" value="1.0"/>
+			<property name="Use_time" value="..."/>
+			<property name="Sound_start" value="player_painkillers"/>
+		</property>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="CallGameEvent" event="enAction_spawnTrader" />
+		</effect_group>
+	</item>	
+	
+	<!-- for testing purposes -->
+	<item name="enBlackPill">
+		<property name="Tags" value="enRedPill"/>
+		<property name="HoldType" value="16"/>
+		<property name="Meshfile" value="#Other/Items?Health/painkillersPrefab.prefab"/>
+		<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+		<property name="CustomIcon" value="drugAntibiotics"/>
+		<property name="CustomIconTint" value="000000"/>
+		<property name="TintColor" value="0,0,0"/>
+		<property name="Material" value="Morganic"/>
+		<property name="EconomicValue" value="1"/>
+		<property name="SellableToTrader" value="false"/>
+		<property name="Stacknumber" value="100"/>
+		<property class="Action0">			
+			<property name="Class" value="Eat"/>
+			<property name="Delay" value="1.0"/>
+			<property name="Use_time" value="..."/>
+			<property name="Sound_start" value="player_painkillers"/>
+		</property>
+		<effect_group tiered="false">
+			<triggered_effect trigger="onSelfPrimaryActionEnd" action="CallGameEvent" event="enAction_removeTrader"/>
+		</effect_group>
+	</item>	
+	
+	
+</append>
+
+
+
+</ErrorNull>
